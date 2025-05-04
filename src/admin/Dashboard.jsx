@@ -49,7 +49,7 @@ export default function Dashboard() {
   return (
     <div className="flex w-full h-[100vh] bg-seaform ">
       {/* Sidebar */}
-      <aside className="w-64 shadow-lg p-4 flex flex-col gap-2 border-r">
+      <aside className="w-64 fixed shadow-lg p-4 flex flex-col gap-2 border-r">
         <h1 className="text-2xl font-bold mb-6 text-center text-deep-teal">BITEBOX</h1>
         {menuItems.map((item) => (
           <div
@@ -65,7 +65,7 @@ export default function Dashboard() {
       </aside>
 
       {/* Main Content */}
-      <main className="flex-1 p-6 bg-gray-50 overflow-y-auto">
+      <main className="ml-[20vw] w-full p-6 bg-gray-50 overflow-y-auto">
         <h2 className="text-xl font-bold mb-4">{active}</h2>
 
         {active === "Products" ? (

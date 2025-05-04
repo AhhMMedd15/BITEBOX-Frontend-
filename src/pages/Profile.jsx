@@ -2,12 +2,18 @@ import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Label } from "@radix-ui/react-dropdown-menu";
-import { Loader, Mail, Plus } from "lucide-react";
+import { Loader, LocateIcon, Mail, MapPin, MapPinned, PhoneOutgoing, Plus } from "lucide-react";
 import React, { useRef, useState } from "react";
 
 const Profile = () => {
+
+
+    const imageRef = useRef();
     let loading = false;
+    const [profilepicture, setprofilepicture] = useState('')
+
     const [profileData, setprofileData] = useState({
+        fullname: "",
         email: "",
         address: "",
         city: "",
@@ -26,7 +32,17 @@ const Profile = () => {
         console.log(profileData);
     };
 
-    const imageRef = useRef();
+
+    const fileChangehandler = (e) => {
+        const file = e.target.file?.[0];
+        if (file) {
+            const reader = new FileReader();
+            reader.onloadend = () => {
+                const result = reader.result;
+                setprofilepicture(result);
+            }
+        }
+    }
     return (
         <>
             <section className=" w-full h-[calc(100vh-80px)] bg-pastel">
@@ -38,18 +54,27 @@ const Profile = () => {
                                     <Avatar className="p-10 bg-seaform rounded-full">
                                         <AvatarImage />
                                         <AvatarFallback>CN</AvatarFallback>
+                                        <input
+                                            type="file"
+                                            ref={imageRef}
+                                            onChange={fileChangehandler}
+                                            className="hidden"
+                                            accept="image/*"
+                                        />
+                                        <div onClick={() => { imageRef.current?.click() }} className="absolute inset-0 w-20 h-20 bg-seaform opacity-0 hover:opacity-100 rounded-full flex items-center justify-center cursor-pointer">
+                                            <Plus
+                                                size={62}
+                                                strokeWidth={1}
+                                                className="text-black"
+                                            ></Plus>
+                                        </div>
                                     </Avatar>
-                                    <input type="file" ref={imageRef} className="hidden" accept="image/*" />
-                                    <div className="absolute inset-0 w-20 h-20 bg-seaform opacity-0 hover:opacity-100 rounded-full flex items-center justify-center cursor-pointer">
-                                        <Plus
-                                            size={62}
-                                            strokeWidth={1}
-                                            className="text-black"
-                                        ></Plus>
-                                    </div>
                                 </div>
                                 <div>
                                     <input
+                                        name="fullname"
+                                        value={profileData.fullname}
+                                        onChange={handlechange}
                                         type="text"
                                         className="w-full text-2xl border-none outline-none ring-0 focus:ring-0 focus-visible:ring-0 shadow-none bg-white"
                                     />
@@ -67,45 +92,49 @@ const Profile = () => {
                                     />
                                     <Mail className="absolute inset-y-7.5 ml-2"></Mail>
                                 </div>
-                                <div className="w-full">
+                                <div className="w-full relative">
                                     <Label>Address</Label>
                                     <Input
                                         name="address"
                                         type="text"
                                         value={profileData.address}
                                         onChange={handlechange}
-                                        className="border bg-seaform focus-visible:ring-1"
+                                        className="border bg-seaform px-10 focus-visible:ring-1"
                                     />
+                                    <LocateIcon className="absolute inset-y-7.5 ml-2"></LocateIcon>
                                 </div>
-                                <div className="w-full">
+                                <div className="w-full relative">
                                     <Label>City</Label>
                                     <Input
                                         name="city"
                                         type="text"
                                         value={profileData.city}
                                         onChange={handlechange}
-                                        className="border bg-seaform focus-visible:ring-1"
+                                        className="border bg-seaform px-10 focus-visible:ring-1"
                                     />
+                                    <MapPin className="absolute inset-y-7.5 ml-2"></MapPin>
                                 </div>
-                                <div className="w-full">
+                                <div className="w-full relative">
                                     <Label>Country</Label>
                                     <Input
                                         name="country"
                                         type="text"
                                         value={profileData.country}
                                         onChange={handlechange}
-                                        className="border bg-seaform focus-visible:ring-1"
+                                        className="border bg-seaform px-10 focus-visible:ring-1"
                                     />
+                                    <MapPinned className="absolute inset-y-7.5 ml-2"></MapPinned>
                                 </div>
-                                <div className="w-full">
+                                <div className="w-full relative">
                                     <Label>Contact</Label>
                                     <Input
                                         name="contact"
                                         type="text"
                                         value={profileData.contact}
                                         onChange={handlechange}
-                                        className="border bg-seaform focus-visible:ring-1"
+                                        className="border bg-seaform px-10 focus-visible:ring-1"
                                     />
+                                    <PhoneOutgoing className="absolute inset-y-7.5 ml-2" />
                                 </div>
                             </div>
                             <div className="lg:w-[10vw]  mt-5 mb-2 m-auto">

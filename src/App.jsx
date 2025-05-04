@@ -11,6 +11,7 @@ import ScrollToTop from './components/ui/Scrolltotop'
 import ForgotPassword from './auth/ForgotPassword'
 import ResetPassword from './auth/ResetPassword'
 import Navbar from './components/ui/Navbar'
+import AddtoCart from './pages/AddtoCart'
 
 
 
@@ -30,6 +31,7 @@ const App = () => {
           <Route path='/orders' element={<Order />}></Route>
           <Route path='/admin/dashboard' element={<Dashboard />}></Route>
           <Route path='/restaurant/:id' element={<Restaurantdetailpage />}></Route>
+          <Route path='/addtocart' element={<AddtoCart/>}></Route>
         </Routes>
       </BrowserRouter>
     </>

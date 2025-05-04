@@ -23,47 +23,47 @@ const Order = () => {
   ]
   return (
     <>
-       <section className="min-h-[calc(100vh-80px)] bg-gray-50 p-6 flex flex-col items-center">
-      <h1 className="text-2xl font-bold mb-6">My Orders</h1>
+      <section className="min-h-[calc(100vh-80px)] bg-gray-50 p-6 flex flex-col items-center">
+        <h1 className="text-2xl font-bold mb-6">My Orders</h1>
 
-      <div className="w-full max-w-3xl space-y-6">
-        {orders.map((order) => (
-          <Card key={order.id} className="shadow-sm">
-            <CardContent className="p-4 space-y-2">
-              <div className="flex justify-between items-center">
-                <h2 className="font-semibold text-lg">{order.id}</h2>
-                <Badge
-                  variant={
-                    order.status === "Delivered"
-                      ? "success"
-                      : order.status === "Processing"
-                      ? "secondary"
-                      : "outline"
-                  }
-                >
-                  {order.status}
-                </Badge>
-              </div>
-              <Separator />
-              <div className="text-sm">
-                <p>
-                  <span className="font-medium text-gray-600">Date:</span>{" "}
-                  {order.date}
-                </p>
-                <p>
-                  <span className="font-medium text-gray-600">Items:</span>{" "}
-                  {order.items.join(", ")}
-                </p>
-                <p>
-                  <span className="font-medium text-gray-600">Total:</span>{" "}
-                  {order.total}
-                </p>
-              </div>
-            </CardContent>
-          </Card>
-        ))}
-      </div>
-    </section>
+        <div className="w-full max-w-3xl space-y-6">
+          {orders.map((order) => (
+            <Card key={order.id} className="shadow-sm">
+              <CardContent className="p-4 space-y-2">
+                <div className="flex justify-between items-center">
+                  <h2 className="font-semibold text-lg">{order.id}</h2>
+                  <Badge
+                    variant={
+                      order.status === "Delivered"
+                        ? "success"
+                        : order.status === "Processing"
+                          ? "secondary"
+                          : "outline"
+                    }
+                  >
+                    {order.status}
+                  </Badge>
+                </div>
+                <Separator />
+                <div className="text-sm">
+                  <p>
+                    <span className="font-medium text-gray-600">Date:</span>{" "}
+                    {order.date}
+                  </p>
+                  <p>
+                    <span className="font-medium text-gray-600">Items:</span>{" "}
+                    {order.items.join(", ")}
+                  </p>
+                  <p>
+                    <span className="font-medium text-gray-600">Total:</span>{" "}
+                    {order.total}
+                  </p>
+                </div>
+              </CardContent>
+            </Card>
+          ))}
+        </div>
+      </section>
     </>
   )
 }

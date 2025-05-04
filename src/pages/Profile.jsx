@@ -82,7 +82,7 @@ const Profile = () => {
                             </div>
                             <div className="w-full grid grid-cols-1 lg:grid-cols-4 mt-5 gap-5">
                                 <div className="w-full relative">
-                                    <Label>Email</Label>
+                                    <Label className="font-semibold">Email</Label>
                                     <Input
                                         type="email"
                                         name="email"
@@ -93,7 +93,7 @@ const Profile = () => {
                                     <Mail className="absolute inset-y-7.5 ml-2"></Mail>
                                 </div>
                                 <div className="w-full relative">
-                                    <Label>Address</Label>
+                                    <Label className="font-semibold">Address</Label>
                                     <Input
                                         name="address"
                                         type="text"
@@ -104,7 +104,7 @@ const Profile = () => {
                                     <LocateIcon className="absolute inset-y-7.5 ml-2"></LocateIcon>
                                 </div>
                                 <div className="w-full relative">
-                                    <Label>City</Label>
+                                    <Label className="font-semibold">City</Label>
                                     <Input
                                         name="city"
                                         type="text"
@@ -115,7 +115,7 @@ const Profile = () => {
                                     <MapPin className="absolute inset-y-7.5 ml-2"></MapPin>
                                 </div>
                                 <div className="w-full relative">
-                                    <Label>Country</Label>
+                                    <Label className="font-semibold">Country</Label>
                                     <Input
                                         name="country"
                                         type="text"
@@ -126,7 +126,7 @@ const Profile = () => {
                                     <MapPinned className="absolute inset-y-7.5 ml-2"></MapPinned>
                                 </div>
                                 <div className="w-full relative">
-                                    <Label>Contact</Label>
+                                    <Label className="font-semibold">Contact</Label>
                                     <Input
                                         name="contact"
                                         type="text"

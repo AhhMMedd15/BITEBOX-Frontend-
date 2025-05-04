@@ -8,7 +8,7 @@ const Restaurantdetailpage = () => {
 
   return (
     <>
-      <section className="w-full h-[100vh]">
+      <section className="w-full bg-pastel">
         <div className="w-full h-[100%]">
           <div className="relative w-full h-[300px] rounded-b-3xl p-1">
             <img
@@ -44,7 +44,7 @@ const Restaurantdetailpage = () => {
 
             {/* Menu Preview */}
             <div className="mt-10">
-              <h3 className="text-xl font-semibold mb-4">Popular Dishes</h3>
+              <h3 className="text-3xl font-OpenSans font-semibold mb-4">Popular Dishes</h3>
               <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-6">
                 {state.restaurant.dishes.map((item) => (
                   <div

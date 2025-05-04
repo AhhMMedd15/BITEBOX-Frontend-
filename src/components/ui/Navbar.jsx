@@ -65,7 +65,7 @@ const Navbar = () => {
                 >
                     <div className="nav-content h-[80px] md:w-[100vw] bg-deep-teal flex justify-between items-center lg:px-20 px-5 md:py-5 ">
                         <div className="left ">
-                            <div className="w-[15vw] h-[20vh] cursor-pointer">
+                            <div className="min-w-[15vw] h-[20vh] cursor-pointer">
                                 <img
                                     className="w-full h-full object-cover"
                                     src="Logo Bitebox.png"

@@ -5,6 +5,8 @@ import {
   DropdownMenu,
   DropdownMenuContent,
   DropdownMenuItem,
+  DropdownMenuLabel,
+  DropdownMenuSeparator,
   DropdownMenuTrigger,
 } from "@/components/ui/dropdown-menu";
 import { Button } from "./button";
@@ -31,10 +33,9 @@ import {
 } from "./sheet";
 
 const Navbar = () => {
-
   const handlemainpage = () => {
-    navigate("/")
-  }
+    navigate("/");
+  };
   const navigate = useNavigate();
   const [showNavbar, setShowNavbar] = useState(true);
   const [lastScrollY, setLastScrollY] = useState(0);
@@ -99,10 +100,16 @@ const Navbar = () => {
                 >
                   Orders
                 </Link>
-
-                <Button className="transition-all hover:-translate-y-[2px]">
-                  <Link to="/admin/dashboard">Dashboard</Link>
-                </Button>
+                <DropdownMenu>
+                  <DropdownMenuTrigger className='bg-black outline-0 px-5 py-2 rounded-2xl transition-all hover:-translate-y-[2px] cursor-pointer'>Dashboard</DropdownMenuTrigger>
+                  <DropdownMenuContent>
+                    <DropdownMenuLabel>My Account</DropdownMenuLabel>
+                    <DropdownMenuSeparator />
+                    <Link to='/admin/restaurant'><DropdownMenuItem>Restaurant</DropdownMenuItem></Link>
+                    <Link to='/admin/dishes'><DropdownMenuItem>Menu</DropdownMenuItem></Link>
+                    <Link to='/admin/orders'><DropdownMenuItem>Orders</DropdownMenuItem></Link>
+                  </DropdownMenuContent>
+                </DropdownMenu>
               </div>
               <div className="flex items-center gap-5">
                 <DropdownMenu>

@@ -4,7 +4,6 @@ import { Link, useLocation } from "react-router-dom";
 
 const Restaurantdetailpage = () => {
   const { state } = useLocation();
-  console.log(state);
 
   return (
     <>
@@ -44,18 +43,22 @@ const Restaurantdetailpage = () => {
 
             {/* Menu Preview */}
             <div className="mt-10">
-              <h3 className="text-3xl font-OpenSans font-semibold mb-4">Popular Dishes</h3>
+              <h3 className="text-3xl font-OpenSans font-semibold mb-4">
+                Popular Dishes
+              </h3>
               <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-6 ">
                 {state.restaurant.dishes.map((item) => (
                   <div
-                    key={item}
+                    key={item.name}
                     className="border rounded-2xl overflow-hidden shadow-2xl bg-pastel transition-transform hover:shadow-2xl hover:-translate-y-2"
                   >
-                    <img
-                      src={item.img}
-                      alt="Dish"
-                      className="h-40 w-full object-cover"
-                    />
+                    <Link to={`/restaurant/dishes`}>
+                      <img
+                        src={item.img}
+                        alt="Dish"
+                        className="h-40 w-full object-cover"
+                      />
+                    </Link>
                     <div className="p-4">
                       <h4 className="font-bold">Signature Dish {item.name}</h4>
                       <p className="text-gray-500 text-sm">
@@ -65,9 +68,7 @@ const Restaurantdetailpage = () => {
                         {item.price}
                       </p>
 
-                      <Link to={`/restaurant/dishes`}>
-                        <Button className="w-full mt-2">View Menu</Button>
-                      </Link>
+                      <Button className="w-full mt-2">Add to Cart</Button>
                     </div>
                   </div>
                 ))}

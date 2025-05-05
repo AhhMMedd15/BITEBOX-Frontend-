@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import { Input } from "@/components/ui/input";
 import { Eye, EyeClosed, EyeOff, LockKeyhole, MailOpen } from "lucide-react";
 import { Button } from "@/components/ui/button";
+import { Checkbox } from "@/components/ui/checkbox";
 
 const ResetPassword = () => {
   let loading = false;
@@ -51,7 +52,7 @@ const ResetPassword = () => {
                 <LockKeyhole className="absolute inset-y-0 text-deep-teal mt-2 ml-2" />
               </div>
               <div className="flex justify-start items-center gap-2 mt-2">
-                <Input type="checkbox" className="w-[20px] ml-2" />
+                <Checkbox  className="w-[20px] h-[20px] ml-2 data-[state=checked]:bg-deep-teal data-[state=checked]:text-white" />
                 <h1>Show Password</h1>
               </div>
             </div>

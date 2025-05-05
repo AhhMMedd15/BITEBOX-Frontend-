@@ -31,6 +31,10 @@ import {
 } from "./sheet";
 
 const Navbar = () => {
+
+  const handlemainpage = () => {
+    navigate("/")
+  }
   const navigate = useNavigate();
   const [showNavbar, setShowNavbar] = useState(true);
   const [lastScrollY, setLastScrollY] = useState(0);
@@ -60,14 +64,14 @@ const Navbar = () => {
     <>
       <div className="w-full h-[80px] bg-pastel">
         <nav
-          className={`fixed top-0 z-10 w-full text-white font-OpenSans transition-transform duration-500 ease-in-out ${
-            showNavbar ? "translate-y-0" : "-translate-y-full"
-          }`}
+          className={`fixed top-0 z-10 w-full text-white font-OpenSans transition-transform duration-500 ease-in-out ${showNavbar ? "translate-y-0" : "-translate-y-full"
+            }`}
         >
           <div className="nav-content h-[80px] md:w-[100vw] bg-deep-teal flex justify-between items-center lg:px-20 px-5 md:py-5 ">
             <div className="left ">
               <div className="min-w-[15vw] h-[20vh] cursor-pointer">
                 <img
+                  onClick={handlemainpage}
                   className="w-full h-full object-cover"
                   src="Logo Bitebox.png"
                   alt="Loading..."

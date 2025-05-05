@@ -21,6 +21,11 @@ const Login = () => {
     const handlesubmit = (e) => {
         e.preventDefault()
         console.log(input)
+
+        setinput({
+            email: "",
+            password: "",
+        })
     }
 
     return (
@@ -48,7 +53,7 @@ const Login = () => {
                             />
                             <LockKeyhole className='absolute inset-y-20 text-deep-teal mt-7 ml-2' />
                         </div>
-                        <div className='mb-3'>       
+                        <div className='mb-3'>
                             <Link className='text-deep-teal' to='/forgotpassword'>Forgot password?</Link>
                         </div>
 

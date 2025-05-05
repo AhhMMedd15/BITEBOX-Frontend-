@@ -21,6 +21,13 @@ const Signup = () => {
     const handlesubmit = (e) => {
         e.preventDefault()
         console.log(input)
+
+        setinput({
+            fullname: "",
+            email: "",
+            password: "",
+            confirmpassword: "",
+        })
     }
 
     return (

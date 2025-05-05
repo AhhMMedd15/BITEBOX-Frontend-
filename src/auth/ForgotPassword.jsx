@@ -20,6 +20,10 @@ const ForgotPassword = () => {
   const handlesubmit = (e) => {
     e.preventDefault()
     console.log(input)
+
+    setinput({
+      email: "",
+    })
   }
 
   return (

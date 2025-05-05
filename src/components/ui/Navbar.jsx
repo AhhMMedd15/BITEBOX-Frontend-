@@ -101,7 +101,7 @@ const Navbar = () => {
                   Orders
                 </Link>
                 <DropdownMenu>
-                  <DropdownMenuTrigger className='bg-black outline-0 px-5 py-2 rounded-2xl transition-all hover:-translate-y-[2px] cursor-pointer'>Dashboard</DropdownMenuTrigger>
+                  <DropdownMenuTrigger className='bg-[#0F172B] outline-0 px-5 py-2 rounded-2xl transition-all hover:-translate-y-[2px] cursor-pointer'>Dashboard</DropdownMenuTrigger>
                   <DropdownMenuContent>
                     <DropdownMenuLabel>My Account</DropdownMenuLabel>
                     <DropdownMenuSeparator />

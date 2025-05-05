@@ -18,9 +18,14 @@ const ResetPassword = () => {
   const handlesubmit = (e) => {
     e.preventDefault();
     console.log(input);
+
+    setinput({
+      newpassword: "",
+      confirmnewpassword: "",
+    })
   };
 
- 
+
   return (
     <>
       <div className="container max-w-full bg-pastel min-w-[400px] p-5 h-screen flex flex-col justify-center items-center">
@@ -52,7 +57,7 @@ const ResetPassword = () => {
                 <LockKeyhole className="absolute inset-y-0 text-deep-teal mt-2 ml-2" />
               </div>
               <div className="flex justify-start items-center gap-2 mt-2">
-                <Checkbox  className="w-[20px] h-[20px] ml-2 data-[state=checked]:bg-deep-teal data-[state=checked]:text-white" />
+                <Checkbox className="w-[20px] h-[20px] ml-2 data-[state=checked]:bg-deep-teal data-[state=checked]:text-white" />
                 <h1>Show Password</h1>
               </div>
             </div>

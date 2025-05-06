@@ -65,7 +65,7 @@ const Profile = () => {
                                             <Plus
                                                 size={62}
                                                 strokeWidth={1}
-                                                className="text-black"
+                                                className="text-deep-teal"
                                             ></Plus>
                                         </div>
                                     </Avatar>
@@ -86,6 +86,7 @@ const Profile = () => {
                                     <Input
                                         type="email"
                                         name="email"
+                                        placeholder='Email'
                                         value={profileData.email}
                                         onChange={handlechange}
                                         className="border bg-seaform px-10 focus-visible:ring-1"
@@ -96,6 +97,7 @@ const Profile = () => {
                                     <Label className="font-semibold">Address</Label>
                                     <Input
                                         name="address"
+                                        placeholder='Address'
                                         type="text"
                                         value={profileData.address}
                                         onChange={handlechange}
@@ -108,6 +110,7 @@ const Profile = () => {
                                     <Input
                                         name="city"
                                         type="text"
+                                        placeholder='City'
                                         value={profileData.city}
                                         onChange={handlechange}
                                         className="border bg-seaform px-10 focus-visible:ring-1"
@@ -118,6 +121,7 @@ const Profile = () => {
                                     <Label className="font-semibold">Country</Label>
                                     <Input
                                         name="country"
+                                        placeholder='Country'
                                         type="text"
                                         value={profileData.country}
                                         onChange={handlechange}
@@ -129,6 +133,7 @@ const Profile = () => {
                                     <Label className="font-semibold">Contact</Label>
                                     <Input
                                         name="contact"
+                                        placeholder='Contact'
                                         type="text"
                                         value={profileData.contact}
                                         onChange={handlechange}

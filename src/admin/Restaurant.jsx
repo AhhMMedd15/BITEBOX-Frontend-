@@ -1,6 +1,7 @@
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Label } from "@radix-ui/react-dropdown-menu";
+import { Building, Globe, Landmark, LayoutGrid, Map, MapPin, Tags, TimerReset, Utensils } from "lucide-react";
 import React, { useState } from "react";
 
 const Restaurant = () => {
@@ -40,7 +41,7 @@ const Restaurant = () => {
           </h1>
           <form onSubmit={restaurantform} className="mt-10 flex flex-col gap-5">
             <div className="grid grid-cols-1 lg:grid-cols-2 gap-5">
-              <div>
+              <div className="relative">
                 <Label className="font-bold">Restaurant Name</Label>
                 <Input
                   type="text"
@@ -48,9 +49,11 @@ const Restaurant = () => {
                   value={restaurantdata.RestaurantName}
                   onChange={changerihandler}
                   placeholder="Enter your Restaurant Name"
+                  className='px-10'
                 ></Input>
+                <Utensils className="absolute inset-y-7.5 ml-2"/>
               </div>
-              <div>
+              <div className="relative">
                 <Label className="font-bold">Restaurant City</Label>
                 <Input
                   type="text"
@@ -58,9 +61,11 @@ const Restaurant = () => {
                   value={restaurantdata.RestaurantCity}
                   onChange={changerihandler}
                   placeholder="Enter your Restaurant City"
+                   className='px-10'
                 ></Input>
+                  <MapPin className="absolute inset-y-7.5 ml-2"/>
               </div>
-              <div>
+              <div className="relative">
                 <Label className="font-bold">Restaurant Country</Label>
                 <Input
                   type="text"
@@ -68,9 +73,11 @@ const Restaurant = () => {
                   value={restaurantdata.RestaurantCountry}
                   onChange={changerihandler}
                   placeholder="Enter your Restaurant Country"
+                   className='px-10'
                 ></Input>
+                  <Globe className="absolute inset-y-7.5 ml-2"/>
               </div>
-              <div>
+              <div className="relative">
                 <Label className="font-bold">Restaurant Delivery Time</Label>
                 <Input
                   type="text"
@@ -78,9 +85,11 @@ const Restaurant = () => {
                   value={restaurantdata.RestaurantDeliveryTime}
                   onChange={changerihandler}
                   placeholder="Enter your Restaurant Delivery Time"
+                   className='px-10'
                 ></Input>
+                  <TimerReset className="absolute inset-y-7.5 ml-2"/>
               </div>
-              <div>
+              <div className="relative">
                 <Label className="font-bold">Restaurant Categories</Label>
                 <Input
                   type="text"
@@ -88,7 +97,9 @@ const Restaurant = () => {
                   value={restaurantdata.RestaurantCategories}
                   onChange={changerihandler}
                   placeholder="Enter your Restaurant Categories"
+                   className='px-10'
                 ></Input>
+                  <Tags className="absolute inset-y-7.5 ml-2"/>
               </div>
             </div>
             <div className="flex justify-center mt-2">

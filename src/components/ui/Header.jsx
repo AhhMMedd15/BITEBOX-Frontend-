@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import { Input } from "@/components/ui/input";
 import { Search } from "lucide-react";
 import { motion } from "motion/react";
+import { Button } from "./button";
 
 
 const Header = () => {
@@ -47,6 +48,9 @@ const Header = () => {
             placeholder="Search by City, Country or Restaurant"
             className="pl-14 py-5 rounded-full border border-deep-teal focus-visible:ring-deep-teal focus-visible:ring-2 text-base w-full"
           />
+          <div className="flex justify-end">
+          <Button className='p-5 px-10 m-auto rounded-full absolute inset-y-0'>Search</Button>
+          </div>
         </form>
       </div>
 

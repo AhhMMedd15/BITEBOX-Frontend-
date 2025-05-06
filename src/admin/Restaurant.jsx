@@ -41,7 +41,7 @@ const Restaurant = () => {
           </h1>
           <form onSubmit={restaurantform} className="mt-10 flex flex-col gap-5">
             <div className="grid grid-cols-1 lg:grid-cols-2 gap-5">
-              <div className="relative">
+              <div className="relative text-deep-teal">
                 <Label className="font-bold">Restaurant Name</Label>
                 <Input
                   type="text"
@@ -53,7 +53,7 @@ const Restaurant = () => {
                 ></Input>
                 <Utensils className="absolute inset-y-7.5 ml-2"/>
               </div>
-              <div className="relative">
+              <div className="relative text-deep-teal">
                 <Label className="font-bold">Restaurant City</Label>
                 <Input
                   type="text"
@@ -65,7 +65,7 @@ const Restaurant = () => {
                 ></Input>
                   <MapPin className="absolute inset-y-7.5 ml-2"/>
               </div>
-              <div className="relative">
+              <div className="relative text-deep-teal">
                 <Label className="font-bold">Restaurant Country</Label>
                 <Input
                   type="text"
@@ -77,7 +77,7 @@ const Restaurant = () => {
                 ></Input>
                   <Globe className="absolute inset-y-7.5 ml-2"/>
               </div>
-              <div className="relative">
+              <div className="relative text-deep-teal">
                 <Label className="font-bold">Restaurant Delivery Time</Label>
                 <Input
                   type="text"
@@ -89,7 +89,7 @@ const Restaurant = () => {
                 ></Input>
                   <TimerReset className="absolute inset-y-7.5 ml-2"/>
               </div>
-              <div className="relative">
+              <div className="relative text-deep-teal">
                 <Label className="font-bold">Restaurant Categories</Label>
                 <Input
                   type="text"

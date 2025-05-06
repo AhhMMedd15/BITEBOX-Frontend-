@@ -1,4 +1,4 @@
-import Navbar from "@/components/ui/Navbar";
+
 import Header from "@/components/ui/Header";
 import React from "react";
 import Restaurants from "../Restaurants/Restaurant/Restaurants";

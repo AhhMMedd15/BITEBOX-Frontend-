@@ -11,9 +11,11 @@ import {
 } from "@/components/ui/dropdown-menu";
 import { Button } from "./button";
 import {
+  ClipboardList,
   Home,
   icons,
   LayoutDashboard,
+  List,
   LogOut,
   Menu,
   Moon,
@@ -21,6 +23,7 @@ import {
   ShoppingCart,
   Sun,
   User,
+  Utensils,
 } from "lucide-react";
 import { Avatar, AvatarFallback, AvatarImage } from "./avatar";
 import {
@@ -106,7 +109,7 @@ const Navbar = () => {
                     <DropdownMenuLabel>My Account</DropdownMenuLabel>
                     <DropdownMenuSeparator />
                     <Link to='/admin/restaurant'><DropdownMenuItem>Restaurant</DropdownMenuItem></Link>
-                    <Link to='/admin/dishes'><DropdownMenuItem>Menu</DropdownMenuItem></Link>
+                    <Link to='/admin/dishes'><DropdownMenuItem>Dishes</DropdownMenuItem></Link>
                     <Link to='/admin/orders'><DropdownMenuItem>Orders</DropdownMenuItem></Link>
                   </DropdownMenuContent>
                 </DropdownMenu>
@@ -190,7 +193,7 @@ const MobileRsponsive = () => {
                   <AvatarFallback>BB</AvatarFallback>
                 </Avatar>
                 <div>
-                  <p className="font-semibold text-base">John Doe</p>
+                  <p className="font-semibold text-base">AHMED ASIF</p>
                   <p className="text-sm text-gray-500">Customer</p>
                 </div>
               </div>
@@ -200,7 +203,7 @@ const MobileRsponsive = () => {
                 <SheetClose asChild>
                   <Link
                     to="/"
-                    className="flex items-center gap-3 p-2 rounded-md hover:bg-gray-100"
+                    className="flex items-center gap-3 p-2 rounded-md hover:bg-mint"
                   >
                     <Home className="w-5 h-5" /> Home
                   </Link>
@@ -208,7 +211,7 @@ const MobileRsponsive = () => {
                 <SheetClose asChild>
                   <Link
                     to="/profile"
-                    className="flex items-center gap-3 p-2 rounded-md hover:bg-gray-100"
+                    className="flex items-center gap-3 p-2 rounded-md hover:bg-mint"
                   >
                     <User className="w-5 h-5" /> Profile
                   </Link>
@@ -216,31 +219,54 @@ const MobileRsponsive = () => {
                 <SheetClose asChild>
                   <Link
                     to="/orders"
-                    className="flex items-center gap-3 p-2 rounded-md hover:bg-gray-100"
+                    className="flex items-center gap-3 p-2 rounded-md hover:bg-mint"
                   >
                     <Package className="w-5 h-5" /> Orders
                   </Link>
                 </SheetClose>
                 <SheetClose asChild>
                   <Link
-                    to="/admin/dashboard"
-                    className="flex items-center gap-3 p-2 rounded-md hover:bg-gray-100"
+                    to="/admin/restaurant"
+                    className="flex items-center gap-3 p-2 rounded-md hover:bg-mint"
                   >
-                    <LayoutDashboard className="w-5 h-5" /> Dashboard
+                    <Utensils className="w-5 h-5" /> Restaurant
+                  </Link>
+                </SheetClose>
+                <SheetClose asChild>
+                  <Link
+                    to="/admin/menu"
+                    className="flex items-center gap-3 p-2 rounded-md hover:bg-mint"
+                  >
+                    <List className="w-5 h-5" /> Menu
+                  </Link>
+                </SheetClose>
+                <SheetClose asChild>
+                  <Link
+                    to="/admin/orders"
+                    className="flex items-center gap-3 p-2 rounded-md hover:bg-mint"
+                  >
+                    <ClipboardList className="w-5 h-5" /> Orders
                   </Link>
                 </SheetClose>
               </div>
 
               {/* Cart */}
-              <div className="flex items-center gap-3 mt-6 p-2 rounded-md hover:bg-gray-100">
-                <ShoppingCart className="w-5 h-5" />
-                <span className="bg-red-500 text-white text-xs px-2 py-0.5 rounded-full">
-                  0
-                </span>
-                <span className="ml-1">Cart</span>
+              <div className="flex relative items-center gap-3 mt-6 p-2 rounded-md hover:bg-mint">
+              <Link to="/addtocart">
+                    <ShoppingCart />
+
+                    <Button
+                      size={icons}
+                      className="bg-red-600 absolute -inset-y-1 text-center text-sm p-1 rounded-full w-auto h-4 ml-3"
+                    >
+                      0
+                    </Button>
+                  </Link>
+                  <Link to="/addtocart">
+                <span className="ml-1">Cart</span></Link>
               </div>
             </div>
-
+          
             {/* Logout */}
             <div className="mt-6">
               <SheetClose asChild>

@@ -1,7 +1,7 @@
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Label } from "@radix-ui/react-dropdown-menu";
-import { Building, Globe, Landmark, LayoutGrid, Map, MapPin, Tags, TimerReset, Utensils } from "lucide-react";
+import { Building, Globe, Image, Landmark, LayoutGrid, Map, MapPin, Tags, TimerReset, Utensils } from "lucide-react";
 import React, { useState } from "react";
 
 const Restaurant = () => {
@@ -11,6 +11,7 @@ const Restaurant = () => {
     RestaurantCountry: "",
     RestaurantDeliveryTime: "",
     RestaurantCategories: "",
+    Imagefile:undefined,
   });
 
   const changerihandler = (e) => {
@@ -27,7 +28,8 @@ const Restaurant = () => {
       RestaurantCity: "",
       RestaurantCountry: "",
       RestaurantDeliveryTime: "",
-      RestaurantCategories: "",
+      RestaurantCategories: [],
+      Imagefile:undefined
     })
   };
 
@@ -39,7 +41,7 @@ const Restaurant = () => {
           <h1 className="text-3xl text-deep-teal text-center font-extrabold">
             Add your Restaurant
           </h1>
-          <form onSubmit={restaurantform} className="mt-10 flex flex-col gap-5">
+          <form onSubmit={restaurantform} className="mt-5 flex flex-col gap-5">
             <div className="grid grid-cols-1 lg:grid-cols-2 gap-5">
               <div className="relative text-deep-teal">
                 <Label className="font-bold">Restaurant Name</Label>
@@ -100,6 +102,17 @@ const Restaurant = () => {
                    className='px-10'
                 ></Input>
                   <Tags className="absolute inset-y-7.5 ml-2"/>
+              </div>
+              <div className="relative text-deep-teal">
+                <Label className="font-bold">Upload Restaurant Banner</Label>
+                <Input
+                  type="file"
+                  name="Imagefile"
+                  accept='image/*'
+                  placeholder="Enter your Restaurant Categories"
+                   className='px-10'
+                ></Input>
+                  <Image className="absolute inset-y-7.5 ml-2"/>
               </div>
             </div>
             <div className="flex justify-center mt-2">

@@ -30,6 +30,16 @@ const Profile = () => {
     const handleformsubmit = (e) => {
         e.preventDefault();
         console.log(profileData);
+
+        setprofileData({
+            fullname: "",
+            email: "",
+            address: "",
+            city: "",
+            country: "",
+            contact: "",
+            profileImage: "",
+        })
     };
 
 

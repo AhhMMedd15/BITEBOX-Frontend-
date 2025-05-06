@@ -17,9 +17,9 @@ import { Label } from "@radix-ui/react-dropdown-menu";
 
 const Menu = () => {
   return (
-    <div className="mt-10 w-full h-screen px-[50px] sm:px-[50px] md:px-[100px]">
-      <div className="flex justify-between items-center">
-        <h3 className="text-3xl font-OpenSans font-bold mb-4">Your Dishes</h3>
+    <div className="mt-10 w-full h-screen px-[50px] sm:px-[50px] md:px-[120px]">
+        <h3 className="text-4xl text-deep-teal font-poppin font-bold mb-4">Your Dishes</h3>
+      <div className="flex justify-end items-center">
         <Dialog>
           <DialogTrigger asChild>
             <Button><Plus></Plus>Add Dish</Button>

@@ -1,7 +1,19 @@
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Label } from "@radix-ui/react-dropdown-menu";
-import { Building, Globe, Image, Landmark, LayoutGrid, Map, MapPin, Tags, TimerReset, Utensils } from "lucide-react";
+import {
+  Building,
+  Globe,
+  Image,
+  ImagePlus,
+  Landmark,
+  LayoutGrid,
+  Map,
+  MapPin,
+  Tags,
+  TimerReset,
+  Utensils,
+} from "lucide-react";
 import React, { useState } from "react";
 
 const Restaurant = () => {
@@ -11,7 +23,7 @@ const Restaurant = () => {
     RestaurantCountry: "",
     RestaurantDeliveryTime: "",
     RestaurantCategories: "",
-    Imagefile:"",
+    Imagefile: "",
   });
 
   const changerihandler = (e) => {
@@ -29,11 +41,10 @@ const Restaurant = () => {
       RestaurantCountry: "",
       RestaurantDeliveryTime: "",
       RestaurantCategories: [],
-      Imagefile:""
-    })
+      Imagefile: "",
+    });
   };
 
- 
   return (
     <>
       <div className="w-full h-[calc(100vh-80px)] flex justify-center items-center">
@@ -51,9 +62,9 @@ const Restaurant = () => {
                   value={restaurantdata.RestaurantName}
                   onChange={changerihandler}
                   placeholder="Enter your Restaurant Name"
-                  className='px-10'
+                  className="focus-visible:ring-1 px-10"
                 ></Input>
-                <Utensils className="absolute inset-y-7.5 ml-2"/>
+                <Utensils className="absolute inset-y-7.5 ml-2" />
               </div>
               <div className="relative text-deep-teal">
                 <Label className="font-bold">Restaurant City</Label>
@@ -63,9 +74,9 @@ const Restaurant = () => {
                   value={restaurantdata.RestaurantCity}
                   onChange={changerihandler}
                   placeholder="Enter your Restaurant City"
-                   className='px-10'
+                  className="focus-visible:ring-1 px-10"
                 ></Input>
-                  <MapPin className="absolute inset-y-7.5 ml-2"/>
+                <MapPin className="absolute inset-y-7.5 ml-2" />
               </div>
               <div className="relative text-deep-teal">
                 <Label className="font-bold">Restaurant Country</Label>
@@ -75,9 +86,9 @@ const Restaurant = () => {
                   value={restaurantdata.RestaurantCountry}
                   onChange={changerihandler}
                   placeholder="Enter your Restaurant Country"
-                   className='px-10'
+                  className="focus-visible:ring-1 px-10"
                 ></Input>
-                  <Globe className="absolute inset-y-7.5 ml-2"/>
+                <Globe className="absolute inset-y-7.5 ml-2" />
               </div>
               <div className="relative text-deep-teal">
                 <Label className="font-bold">Restaurant Delivery Time</Label>
@@ -87,9 +98,9 @@ const Restaurant = () => {
                   value={restaurantdata.RestaurantDeliveryTime}
                   onChange={changerihandler}
                   placeholder="Enter your Restaurant Delivery Time"
-                   className='px-10'
+                  className="focus-visible:ring-1 px-10"
                 ></Input>
-                  <TimerReset className="absolute inset-y-7.5 ml-2"/>
+                <TimerReset className="absolute inset-y-7.5 ml-2" />
               </div>
               <div className="relative text-deep-teal">
                 <Label className="font-bold">Restaurant Categories</Label>
@@ -99,22 +110,25 @@ const Restaurant = () => {
                   value={restaurantdata.RestaurantCategories}
                   onChange={changerihandler}
                   placeholder="Enter your Restaurant Categories"
-                   className='px-10'
+                  className="focus-visible:ring-1 px-10"
                 ></Input>
-                  <Tags className="absolute inset-y-7.5 ml-2"/>
+                <Tags className="absolute inset-y-7.5 ml-2" />
               </div>
               <div className="relative text-deep-teal">
                 <Label className="font-bold">Upload Restaurant Banner</Label>
                 <Input
                   type="file"
                   name="Imagefile"
-                  value={restaurantdata.Imagefile}
-                  onChange={changerihandler}
-                  accept='image/*'
-                  placeholder="Enter your Restaurant Categories"
-                   className='px-10'
+                  onChange={(e) => {
+                    setrestaurantdata({
+                      ...restaurantdata,
+                      Imagefile: e.target.files?.[0] || undefined,
+                    });
+                  }}
+                  accept="image/*"
+                  className="focus-visible:ring-1 px-10"
                 ></Input>
-                  <Image className="absolute inset-y-7.5 ml-2"/>
+                <ImagePlus className="absolute inset-y-7.5 ml-2" />
               </div>
             </div>
             <div className="flex justify-center mt-2">

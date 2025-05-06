@@ -11,7 +11,7 @@ const Restaurant = () => {
     RestaurantCountry: "",
     RestaurantDeliveryTime: "",
     RestaurantCategories: "",
-    Imagefile:undefined,
+    Imagefile:"",
   });
 
   const changerihandler = (e) => {
@@ -29,7 +29,7 @@ const Restaurant = () => {
       RestaurantCountry: "",
       RestaurantDeliveryTime: "",
       RestaurantCategories: [],
-      Imagefile:undefined
+      Imagefile:""
     })
   };
 
@@ -108,6 +108,8 @@ const Restaurant = () => {
                 <Input
                   type="file"
                   name="Imagefile"
+                  value={restaurantdata.Imagefile}
+                  onChange={changerihandler}
                   accept='image/*'
                   placeholder="Enter your Restaurant Categories"
                    className='px-10'
@@ -116,7 +118,7 @@ const Restaurant = () => {
               </div>
             </div>
             <div className="flex justify-center mt-2">
-              <Button className="w-64">Add your Restaurant</Button>
+              <Button className="w-42">Add Restaurant</Button>
             </div>
           </form>
         </div>

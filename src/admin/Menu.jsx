@@ -1,6 +1,6 @@
 import { Button } from "@/components/ui/button";
 import { Plus } from "lucide-react";
-import React from "react";
+import React, { useState } from "react";
 import {
   Dialog,
   DialogContent,
@@ -9,45 +9,101 @@ import {
   DialogHeader,
   DialogTitle,
   DialogTrigger,
-} from "@/components/ui/dialog"
-import { Input } from "@/components/ui/input"
+} from "@/components/ui/dialog";
+import { Input } from "@/components/ui/input";
 import { Label } from "@radix-ui/react-dropdown-menu";
 
-
-
 const Menu = () => {
+  const [dishdata, setdishdata] = useState({
+    dishname: "",
+    dishdescription: "",
+    dishprice: "",
+    dishimage: "",
+  });
+
+  const handledishdatachange = (e) => {
+    const { name, value } = e.target;
+    setdishdata({ ...dishdata, [name]: value });
+  };
+  const handleSubmitDIshdata = (e) => {
+    e.preventDefault();
+    console.log(dishdata);
+
+    setdishdata({
+      dishname: "",
+      dishdescription: "",
+      dishprice: "",
+      dishimage: "",
+    })
+  };
+
   return (
     <div className="mt-10 w-full h-screen px-[50px] sm:px-[50px] md:px-[120px]">
-        <h3 className="text-4xl text-deep-teal font-poppin font-bold mb-4">Your Dishes</h3>
+      <h3 className="text-4xl text-deep-teal font-poppin font-bold mb-4">
+        Your Dishes
+      </h3>
       <div className="flex justify-end items-center">
         <Dialog>
           <DialogTrigger asChild>
-            <Button><Plus></Plus>Add Dish</Button>
+            <Button className="cursor-pointer">
+              <Plus></Plus>Add Dish
+            </Button>
           </DialogTrigger>
           <DialogContent className="sm:max-w-[425px]">
             <DialogHeader>
-              <DialogTitle>Edit profile</DialogTitle>
-              <DialogDescription>
-                Make changes to your profile here. Click save when you're done.
-              </DialogDescription>
+              <DialogTitle className="text-center text-3xl text-deep-teal font-extrabold">
+                Add a New Dish
+              </DialogTitle>
             </DialogHeader>
-            <div className="grid gap-4 py-4">
-              <div className="grid grid-cols-4 items-center gap-4">
-                <Label htmlFor="name" className="text-right">
-                  Name
-                </Label>
-                <Input id="name" value="Pedro Duarte" className="col-span-3" />
+            <form
+              onSubmit={handleSubmitDIshdata}
+              className="flex flex-col gap-2 text-deep-teal"
+            >
+              <div>
+                <Label className="font-bold">Dish Name</Label>
+                <Input
+                  type="text"
+                  name="dishname"
+                  value={dishdata.dishname}
+                  onChange={handledishdatachange}
+                  placeholder="Enter your Dish Name"
+                  className="focus-visible:ring-1"
+                ></Input>
               </div>
-              <div className="grid grid-cols-4 items-center gap-4">
-                <Label htmlFor="username" className="text-right">
-                  Username
-                </Label>
-                <Input id="username" value="@peduarte" className="col-span-3" />
+              <div>
+                <Label className="font-bold">Dish Description</Label>
+                <Input
+                  type="text"
+                  name="dishdescription"
+                  value={dishdata.dishdescription}
+                  onChange={handledishdatachange}
+                  placeholder="Enter your Dish Description"
+                  className="focus-visible:ring-1"
+                ></Input>
               </div>
-            </div>
-            <DialogFooter>
-              <Button type="submit">Save changes</Button>
-            </DialogFooter>
+              <div>
+                <Label className="font-bold">Dish Price</Label>
+                <Input
+                  type="text"
+                  name="dishprice"
+                  value={dishdata.dishprice}
+                  onChange={handledishdatachange}
+                  placeholder="Enter your Dish Price"
+                  className="focus-visible:ring-1"
+                ></Input>
+              </div>
+              <div>
+                <Label className="font-bold">Dish Image</Label>
+                <Input
+                  type="file"
+                  name="dishimage"
+                  value={dishdata.dishimage}
+                  onChange={handledishdatachange}
+                  className="focus-visible:ring-1"
+                ></Input>
+              </div>
+              <Button type="submit">Add Dish</Button>
+            </form>
           </DialogContent>
         </Dialog>
       </div>
@@ -69,7 +125,6 @@ const Menu = () => {
             <Button className="w-full mt-2">Edit</Button>
           </div>
         </div>
-       
       </div>
     </div>
   );

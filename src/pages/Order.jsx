@@ -72,7 +72,7 @@ const Order = () => {
                 </Table>
                 <div className="flex justify-end">
                   <Link to="/addtocart">
-                    <Button>Continue Shopping</Button>
+                    <Button className='cursor-pointer mt-2'>Continue Shopping</Button>
                   </Link>
                 </div>
               </div>

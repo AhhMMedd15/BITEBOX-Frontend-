@@ -26,6 +26,13 @@ const EditDish = ({ selecteddish, editopen, seteditopen }) => {
   const handleSubmitEditDishData = (e) => {
     e.preventDefault();
     console.log(editdish);
+
+    seteditdish({
+      editname: "",
+      editdescription: "",
+      editprice: "",
+      editimage: "",
+    });
   };
 
   useEffect(() => {
@@ -39,8 +46,8 @@ const EditDish = ({ selecteddish, editopen, seteditopen }) => {
 
   return (
     <>
-      <Dialog open={editopen} onOpenChange={seteditopen}>
-        <DialogContent>
+      <Dialog open={editopen} onOpenChange={seteditopen} >
+        <DialogContent >
           <DialogHeader>
             <DialogTitle className="text-center text-3xl text-deep-teal font-extrabold">
               Edit Dish

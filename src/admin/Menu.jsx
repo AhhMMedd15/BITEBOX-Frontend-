@@ -167,17 +167,19 @@ const Menu = () => {
           </DialogContent>
         </Dialog>
       </div>
+
+
       {dishes.map((item, index) => {
         return (
           <div
             key={index}
             className="flex flex-col justify-between items-center gap-6 mt-10"
           >
-            <div className="border w-[50vw] rounded-2xl overflow-hidden shadow-2xl bg-pastel transition-transform hover:shadow-2xl hover:-translate-y-2">
+            <div className="border w-[50vw] sm:min-w-[40vw] md:w-[60vw] md:flex items-center mb-10 rounded-2xl overflow-hidden shadow-2xl bg-pastel transition-transform hover:shadow-2xl hover:-translate-y-2">
               <img
                 src={item.image}
                 alt="Dish"
-                className="h-40 w-full object-cover"
+                className="h-40 w-full md:w-[25vw] md:h-44 object-fit"
               />
 
               <div className="p-4">
@@ -186,22 +188,27 @@ const Menu = () => {
                 <p className="mt-2 font-semibold text-green-600">
                   {item.price}
                 </p>
-                <div>
-                  <Button 
-                  size={"sm"} 
-                  className="w-full mt-2"
-                  onClick={()=>{
-                    setselecteddish(item)
-                    seteditopen(true)
-                  }}
+                <div className="w-[30vw] text-right">
+                  <Button
+                    size={"sm"}
+                    className="w-full md:w-42 mt-2"
+                    onClick={() => {
+                      setselecteddish(item);
+                      seteditopen(true);
+                    }}
                   >
-
                     Edit
                   </Button>
                 </div>
               </div>
             </div>
-            <EditDish selecteddish={selecteddish} editopen={editopen} seteditopen={seteditopen}/>
+            
+              <EditDish
+                selecteddish={selecteddish}
+                editopen={editopen}
+                seteditopen={seteditopen}
+              />
+       
           </div>
         );
       })}

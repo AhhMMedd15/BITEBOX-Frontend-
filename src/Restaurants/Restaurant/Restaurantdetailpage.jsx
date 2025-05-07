@@ -1,7 +1,7 @@
 import React from "react";
 import { Button } from "@/components/ui/button";
 import { Link, useLocation } from "react-router-dom";
-
+import { motion } from "motion/react";
 const Restaurantdetailpage = () => {
   const { state } = useLocation();
 
@@ -10,11 +10,16 @@ const Restaurantdetailpage = () => {
       <section className="w-full bg-mint">
         <div className="w-full h-[100%]">
           <div className="relative w-full h-[300px] rounded-b-3xl p-1">
-            <img
-              src={state.restaurant.img}
-              alt="Loading..."
-              className="object-cover w-full h-full rounded-b-3xl"
-            />
+            <div className="w-full h-full overflow-hidden">
+              <motion.img
+                initial={{y:'100%',opacity: 0}}
+                animate={{y:'0',opacity: 1}}
+                transition={{ duration: 2, ease: "easeOut" }}
+                src={state.restaurant.img}
+                alt="Loading..."
+                className="object-cover w-full h-full rounded-b-3xl"
+              />
+            </div>
 
             <div className="absolute inset-5 bg-opacity-40 flex items-end p-6">
               <h1 className="text-4xl text-center text-white px-[30px] py-[10px] backdrop-blur-xl bg-transparent rounded-2xl font-bold">

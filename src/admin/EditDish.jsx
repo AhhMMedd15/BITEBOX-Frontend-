@@ -1,129 +1,112 @@
-import React, { useState, useEffect } from "react";
+import { Button } from "@/components/ui/button";
 import {
   Dialog,
   DialogContent,
   DialogHeader,
-  DialogTitle
+  DialogTitle,
 } from "@/components/ui/dialog";
-import { Button } from "@/components/ui/button";
-import {
-  DollarSign,
-  ImagePlus,
-  StickyNote,
-  Utensils
-} from "lucide-react";
-import { Label } from "@radix-ui/react-dropdown-menu";
 import { Input } from "@/components/ui/input";
+import { Label } from "@radix-ui/react-dropdown-menu";
+import { DollarSign, ImagePlus, StickyNote, Utensils } from "lucide-react";
+import React, { useEffect, useState } from "react";
 
 const EditDish = ({ selecteddish, editopen, seteditopen }) => {
-  const [editdishdata, seteditdishdata] = useState({
-    dishname: "",
-    dishdescription: "",
-    dishprice: "",
-    dishimage: undefined,
+  const [editdish, seteditdish] = useState({
+    editname: "",
+    editdescription: "",
+    editprice: "",
+    editimage: "",
   });
 
+  const handleEditDishChnage = (e) => {
+    const { name, value } = e.target;
+    seteditdish({ ...editdish, [name]: value });
+  };
+
+  const handleSubmitEditDishData = (e) => {
+    e.preventDefault();
+    console.log(editdish);
+  };
+
   useEffect(() => {
-    console.log(selecteddish)
-    if (selecteddish) {
-      seteditdishdata({
-        dishname: selecteddish.name || "",
-        dishdescription: selecteddish.description || "",
-        dishprice: selecteddish.price || "",
-        dishimage: selecteddish.image || undefined,
-      });
-    }
+    seteditdish({
+      editname: selecteddish.name,
+      editdescription: selecteddish.description,
+      editprice: selecteddish.price,
+      editimage: undefined,
+    });    
   }, [selecteddish]);
 
-  const handleeditdishdatachange = (e) => {
-    const { name, value } = e.target;
-    seteditdishdata((prev) => ({ ...prev, [name]: value }));
-  };
-
-  const handleSubmitEditDishdata = (e) => {
-    e.preventDefault();
-    console.log("Edited dish:", editdishdata);
-    
-   
-    seteditdishdata({
-      dishname: "",
-      dishdescription: "",
-      dishprice: "",
-      dishimage: undefined,
-    });
-    seteditopen(false);
-  };
-
   return (
-    <Dialog open={editopen} onOpenChange={seteditopen}>
-      <DialogContent className="sm:max-w-[425px]">
-        <DialogHeader>
-          <DialogTitle className="text-center text-3xl text-deep-teal font-extrabold">
-            Edit Dish
-          </DialogTitle>
-        </DialogHeader>
-        <form onSubmit={handleSubmitEditDishdata} className="flex flex-col gap-4">
-      
-          <div className="relative text-deep-teal">
-            <Label className="font-bold">Dish Name</Label>
-            <Input
-              type="text"
-              name="dishname"
-              value={editdishdata.dishname}
-              onChange={handleeditdishdatachange}
-              placeholder="Enter your Dish Name"
-              className="focus-visible:ring-1 px-10"
-            />
-            <Utensils className="absolute inset-y-7.5 ml-2" />
-          </div>
+    <>
+      <Dialog open={editopen} onOpenChange={seteditopen}>
+        <DialogContent>
+          <DialogHeader>
+            <DialogTitle className="text-center text-3xl text-deep-teal font-extrabold">
+              Edit Dish
+            </DialogTitle>
+          </DialogHeader>
 
-          <div className="relative text-deep-teal">
-            <Label className="font-bold">Dish Description</Label>
-            <Input
-              type="text"
-              name="dishdescription"
-              value={editdishdata.dishdescription}
-              onChange={handleeditdishdatachange}
-              placeholder="Enter your Dish Description"
-              className="focus-visible:ring-1 px-10"
-            />
-            <StickyNote className="absolute inset-y-7.5 ml-2" />
-          </div>
-
-          <div className="relative text-deep-teal">
-            <Label className="font-bold">Dish Price</Label>
-            <Input
-              type="text"
-              name="dishprice"
-              value={editdishdata.dishprice}
-              onChange={handleeditdishdatachange}
-              placeholder="Enter your Dish Price"
-              className="focus-visible:ring-1 px-10"
-            />
-            <DollarSign className="absolute inset-y-7.5 ml-2" />
-          </div>
-
-          <div className="relative text-deep-teal">
-            <Label className="font-bold">Dish Image</Label>
-            <Input
-              type="file"
-              name="dishimage"
-              accept="image/*"
-              onChange={(e) =>
-                seteditdishdata((prev) => ({
-                  ...prev,
-                  dishimage: e.target.files?.[0] || undefined,
-                }))
-              }
-              className="focus-visible:ring-1 px-10"
-            />
-            <ImagePlus className="absolute inset-y-7.5 ml-2" />
-          </div>
-
-          <Button type="submit">Save Changes</Button>
-        </form>
-      </DialogContent>
-    </Dialog>
+          <form onSubmit={handleSubmitEditDishData}>
+            <div className="relative text-deep-teal">
+              <Label className="font-bold">Dish Name</Label>
+              <Input
+                type="text"
+                name="editname"
+                value={editdish.editname}
+                onChange={handleEditDishChnage}
+                placeholder="Enter your Dish Name"
+                className="focus-visible:ring-1 px-10"
+              ></Input>
+              <Utensils className="absolute inset-y-7.5 ml-2" />
+            </div>
+            <div className="relative text-deep-teal">
+              <Label className="font-bold">Dish Description</Label>
+              <Input
+                type="text"
+                name="editdescription"
+                value={editdish.editdescription}
+                onChange={handleEditDishChnage}
+                placeholder="Enter your Dish Description"
+                className="focus-visible:ring-1 px-10"
+              ></Input>
+              <StickyNote className="absolute inset-y-7.5 ml-2" />
+            </div>
+            <div className="relative text-deep-teal">
+              <Label className="font-bold">Dish Price</Label>
+              <Input
+                type="text"
+                name="editprice"
+                value={editdish.editprice}
+                onChange={handleEditDishChnage}
+                placeholder="Enter your Dish Price"
+                className="focus-visible:ring-1 px-10"
+              ></Input>
+              <DollarSign className="absolute inset-y-7.5 ml-2" />
+            </div>
+            <div className="relative text-deep-teal">
+              <Label className="font-bold">Dish Image</Label>
+              <Input
+                type="file"
+                name="editimage"
+                onChange={(e) =>
+                  seteditdish({
+                    ...editdish,
+                    editimage: e.target.files?.[0] || undefined,
+                  })
+                }
+                accept="image/*"
+                className="focus-visible:ring-1 px-10"
+              ></Input>
+              <ImagePlus className="absolute inset-y-7.5 ml-2" />
+            </div>
+            <Button size={"sm"} className="w-full mt-2">
+              Edit Dish
+            </Button>
+          </form>
+        </DialogContent>
+      </Dialog>
+    </>
   );
 };
 

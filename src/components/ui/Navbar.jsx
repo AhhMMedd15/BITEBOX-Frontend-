@@ -234,10 +234,10 @@ const MobileRsponsive = () => {
                 </SheetClose>
                 <SheetClose asChild>
                   <Link
-                    to="/admin/menu"
+                    to="/admin/dishes"
                     className="flex items-center gap-3 p-2 rounded-md hover:bg-mint"
                   >
-                    <List className="w-5 h-5" /> Menu
+                    <List className="w-5 h-5" /> Dish
                   </Link>
                 </SheetClose>
                 <SheetClose asChild>

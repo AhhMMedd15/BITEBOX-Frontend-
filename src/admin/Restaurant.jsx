@@ -48,7 +48,7 @@ const Restaurant = () => {
   return (
     <>
       <div className="w-full h-[calc(100vh-80px)] flex justify-center items-center">
-        <div className="w-[90%] h-[90%] bg-white px-5 py-5 rounded-4xl shadow-2xl">
+        <div className="w-[90%] min-h-[90%] bg-white px-5 py-5 rounded-4xl shadow-2xl">
           <h1 className="text-3xl text-deep-teal text-center font-extrabold">
             Add your Restaurant
           </h1>

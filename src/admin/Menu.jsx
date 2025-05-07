@@ -191,7 +191,7 @@ const Menu = () => {
                   size={"sm"} 
                   className="w-full mt-2"
                   onClick={()=>{
-                    setselecteddish(dishes)
+                    setselecteddish(item)
                     seteditopen(true)
                   }}
                   >

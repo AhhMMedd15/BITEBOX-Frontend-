@@ -104,7 +104,7 @@ const Navbar = () => {
                   Orders
                 </Link>
                 <DropdownMenu>
-                  <DropdownMenuTrigger className='bg-[#0F172B] outline-0 px-5 py-2 rounded-2xl transition-all hover:-translate-y-[2px] cursor-pointer'>Dashboard</DropdownMenuTrigger>
+                  <DropdownMenuTrigger className='bg-deep-teal border-2 outline-0 px-5 py-2 rounded-2xl transition-all hover:-translate-y-[2px] cursor-pointer'>Dashboard</DropdownMenuTrigger>
                   <DropdownMenuContent>
                     <DropdownMenuLabel>My Account</DropdownMenuLabel>
                     <DropdownMenuSeparator />
@@ -152,7 +152,7 @@ const Navbar = () => {
 
                 <Button
                   onClick={handlelogout}
-                  className="bg-white text-black cursor-pointer transition-all hover:bg-gray-100 hover:-translate-y-[2px]"
+                  className="shadow-2xl border-2 cursor-pointer transition-all hover:-translate-y-[2px]"
                 >
                   Log Out
                 </Button>

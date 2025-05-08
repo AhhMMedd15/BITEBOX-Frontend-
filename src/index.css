@@ -37,7 +37,7 @@
   --sidebar-border: oklch(0.929 0.013 255.508);
   --sidebar-ring: oklch(0.704 0.04 256.788);
   --color-deep-teal: #0f6466;
-  --color-hover: #168a8b;
+  --color-hover: #127274;
   --color-mint: #cde5df;
   --color-seaform: #d9ede8;
   --color-pastel: #ecfbf4;
@@ -45,7 +45,7 @@
 
 @theme {
   --color-deep-teal: #0f6466;
-  --color-hover: #168a8b;
+  --color-hover: #127274;
   --color-mint: #cde5df;
   --color-seaform: #d9ede8;
   --color-pastel: #ecfbf4;
